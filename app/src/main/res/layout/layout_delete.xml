@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.idealcn.recyclerView.view.SlideDeleteLayout
+        android:id="@+id/slideLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <!--文本部分-->
+        <include layout="@layout/slide_content" />
+
+        <!--删除部分-->
+        <include layout="@layout/slide_delete" />
+
+    </com.idealcn.recyclerView.view.SlideDeleteLayout>
+</RelativeLayout>
