@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseAdapteribrary/BaseAdapteribrary.iml" filepath="$PROJECT_DIR$/BaseAdapteribrary/BaseAdapteribrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/RecyclerViewStudy.iml" filepath="$PROJECT_DIR$/RecyclerViewStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/refreshLibrary/refreshLibrary.iml" filepath="$PROJECT_DIR$/refreshLibrary/refreshLibrary.iml" />
     </modules>
   </component>
 </project>

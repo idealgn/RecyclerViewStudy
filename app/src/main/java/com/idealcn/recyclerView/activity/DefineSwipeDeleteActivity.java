@@ -43,7 +43,7 @@ public class DefineSwipeDeleteActivity extends AppCompatActivity{
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 //上下滑动时,关闭打开的item
-                if (recyclerView.getScrollState()==RecyclerView.SCROLL_STATE_DRAGGING&&Math.abs(dy)>0){
+                if (recyclerView.getScrollState()==RecyclerView.SCROLL_STATE_DRAGGING&&Math.abs(dy)>20){
                     //这里采用了接口,保证了MyAdapter中定义的关闭方法不被外界所知道
                     myAdapter.close();
                 }

@@ -20,6 +20,7 @@
         <activity android:name=".activity.SwipeAndRemoveActivity" />
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.DefineSwipeDeleteActivity" />
+        <activity android:name=".activity.RefreshActivity" />
     </application>
 
 </manifest>

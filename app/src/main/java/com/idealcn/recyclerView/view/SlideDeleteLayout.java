@@ -1,6 +1,7 @@
 package com.idealcn.recyclerView.view;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -10,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * Created by ideal-gn on 2017/9/12.
  *
- * 参考博客: http://www.jianshu.com/p/5cb27a2ce03d
+ *
  */
 
 public class SlideDeleteLayout extends ViewGroup  {
@@ -118,7 +119,8 @@ public class SlideDeleteLayout extends ViewGroup  {
             helper.smoothSlideViewTo(mDelete,mContentWidth,0);
             helper.smoothSlideViewTo(mContent,0,0);
         }
-        invalidate();
+//        invalidate();
+        ViewCompat.postInvalidateOnAnimation(this);
     }
 
 
@@ -126,7 +128,8 @@ public class SlideDeleteLayout extends ViewGroup  {
     public void computeScroll() {
         super.computeScroll();
         if (helper.continueSettling(true))
-            invalidate();
+            ViewCompat.postInvalidateOnAnimation(this);
+//            invalidate();
     }
 
     @Override
@@ -152,10 +155,14 @@ public class SlideDeleteLayout extends ViewGroup  {
     }
 
 
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        helper.processTouchEvent(event);
-        return true;
+
+            helper.processTouchEvent(event);
+            return true;
+
     }
 
     private OnSlideDeleteListener listener;
@@ -163,6 +170,8 @@ public class SlideDeleteLayout extends ViewGroup  {
     public interface OnSlideDeleteListener {
         void onOpen(SlideDeleteLayout slideDelete);
         void onClose(SlideDeleteLayout slideDelete);
+
+        void onClick();
     }
 
     public void setListener(OnSlideDeleteListener listener) {

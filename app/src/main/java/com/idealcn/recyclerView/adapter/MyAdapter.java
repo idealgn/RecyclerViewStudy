@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.idealcn.recyclerView.R;
@@ -39,9 +40,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder>  impleme
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
+    public void onBindViewHolder(MyHolder holder, final int position) {
         holder.textView.setText(dataList.get(holder.getAdapterPosition()));
-
         SlideDeleteLayout deleteLayout = (SlideDeleteLayout) holder.itemView.findViewById(R.id.slideLayout);
         deleteLayout.setListener(new SlideDeleteLayout.OnSlideDeleteListener() {
             @Override
@@ -54,6 +54,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder>  impleme
             public void onClose(SlideDeleteLayout slideDelete) {
                 deleteLayoutList.remove(slideDelete);
             }
+
+            @Override
+            public void onClick() {
+                Toast.makeText(context, "click", Toast.LENGTH_SHORT).show();
+            }
+
+
         });
     }
 

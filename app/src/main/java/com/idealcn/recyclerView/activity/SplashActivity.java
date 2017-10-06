@@ -52,6 +52,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.viewDrawHelper:
                 startActivity(new Intent(this,DefineSwipeDeleteActivity.class));
                 break;
+            case R.id.refresh:
+                startActivity(new Intent(this,RefreshActivity.class));
+                break;
                 default:break;
         }
     }

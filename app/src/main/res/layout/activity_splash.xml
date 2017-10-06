@@ -29,5 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/viewDrawHelper"/>
+        <Button
+            android:onClick="@{click}"
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刷新/加载更多"/>
     </LinearLayout>
 </layout>
