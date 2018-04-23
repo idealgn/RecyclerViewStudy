@@ -11,6 +11,8 @@ floating绘制字体仍有问题
 
 
 比如设置了outRect.top = 20;那么上方紫色区域的高度就是20;也就是outRect的某个值对应某个方向上那个区域的高度,而不是坐标.
+如图:
+![rect](http://aliyunzixunbucket.oss-cn-beijing.aliyuncs.com/png/getItemOffsets_test1.png?x-oss-process=image/resize,p_100/auto-orient,1/quality,q_90/format,jpg/watermark,image_eXVuY2VzaGk=,t_100,g_se,x_0,y_0)(图片来源于网络,如有侵权,请联系我删除)
 
 position
 
