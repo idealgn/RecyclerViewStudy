@@ -32,10 +32,11 @@ public class RetrofitClient {
                             public Response intercept(Chain chain) throws IOException {
                                 Request request = chain.request();
                                 Response response = chain.proceed(request);
-                                boolean successful = response.isSuccessful();
-                                String message = response.message();
-                                ResponseBody body = response.body();
-                                String string = body.string();
+//                                boolean successful = response.isSuccessful();
+//                                String message = response.message();
+//                                ResponseBody body = response.body();
+                                //body.string()多次调用会触发异常 java.lang.IllegalStateException: closed
+//                                String string = body.string();
                                 return response;
                             }
                         })

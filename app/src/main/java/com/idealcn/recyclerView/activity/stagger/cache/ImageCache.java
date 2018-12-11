@@ -1,4 +1,4 @@
-package com.idealcn.recyclerView.activity.stagger;
+package com.idealcn.recyclerView.activity.stagger.cache;
 
 import android.graphics.Bitmap;
 

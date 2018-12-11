@@ -3,10 +3,12 @@ package com.idealcn.recyclerView.activity.stagger;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
-import com.idealcn.recyclerView.activity.stagger.impl.ImageMemoryCache;
-import com.idealcn.recyclerView.activity.stagger.impl.LocalImageCache;
+import com.idealcn.recyclerView.activity.stagger.cache.ImageCache;
+import com.idealcn.recyclerView.activity.stagger.cache.ImageMemoryCache;
+import com.idealcn.recyclerView.activity.stagger.cache.LocalImageCache;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,24 +28,24 @@ import okhttp3.Response;
 public class ImageLoader {
 
     private ImageCache memoryCache;
-    private WeakReference<Context> weakReference;
 
     private ImageCache localImageCache;
 
     private boolean useLocalCache;
 
-    private ImageLoader(Context context){
-        weakReference = new WeakReference<>(context);
+    private ImageLoader(){
         memoryCache = new ImageMemoryCache();
     }
 
+
+
     private static ImageLoader loader;
-    public static ImageLoader getLoader(Context context){
+    public static ImageLoader getLoader(){
 
             if (null==loader){
                 synchronized (ImageLoader.class){
                     if (null==loader) {
-                        loader = new ImageLoader(context);
+                        loader = new ImageLoader();
                     }
                 }
             }
@@ -87,13 +89,18 @@ public class ImageLoader {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if (response.isSuccessful() && response.code() == 200){
                     InputStream inputStream = response.body().byteStream();
-                    Bitmap temp = BitmapFactory.decodeStream(inputStream);
-                    imageView.setImageBitmap(temp);
-                    memoryCache.put(path,temp);
-                    localImageCache.put(path,temp);
+                   final  Bitmap temp = BitmapFactory.decodeStream(inputStream);
+                    imageView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            imageView.setImageBitmap(temp);
+                            memoryCache.put(path,temp);
+                            localImageCache.put(path,temp);
+                        }
+                    }, 100);
                 }
             }
         });

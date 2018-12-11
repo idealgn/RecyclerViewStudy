@@ -7,13 +7,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.idealcn.recyclerView.R;
+import com.idealcn.recyclerView.activity.stagger.bean.BaseResponseBean;
+import com.idealcn.recyclerView.activity.stagger.bean.Beauty;
 import com.idealcn.recyclerView.http.RetrofitClient;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -24,6 +29,7 @@ import io.reactivex.schedulers.Schedulers;
 public class StaggeredActivity extends AppCompatActivity {
 
     private         StaggerAdapter staggerAdapter;
+    private int page = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,28 +40,26 @@ public class StaggeredActivity extends AppCompatActivity {
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         recyclerView.setLayoutManager(layoutManager);
 
-        staggerAdapter = new StaggerAdapter(this);
-//        for (int i = 0; i < 50; i++) {
-//            staggerAdapter.addData(String.valueOf(i));
-//        }
-//        try {
-//            String[] list = getAssets().list("imgs");
-//            for (String s : list) {
-//                staggerAdapter.addData(s);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        staggerAdapter = new StaggerAdapter();
         recyclerView.setAdapter(staggerAdapter);
-
-        requestImageList(0);
+        requestImageList();
     }
 
-    private void requestImageList(int page){
+    private void requestImageList(){
         //@GET("http://gank.io/api/data/{type}/{pageCount}/{page}")
         RetrofitClient.newInstance().getApi().getBeautyList("福利",20,page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(new Function<BaseResponseBean<Beauty>, ObservableSource<BaseResponseBean<Beauty>>>() {
+                    @Override
+                    public Observable<BaseResponseBean<Beauty>> apply(BaseResponseBean<Beauty> beautyBaseResponseBean) throws Exception {
+                        List<Beauty> beautyList = beautyBaseResponseBean.getResults();
+                        staggerAdapter.addData(beautyList);
+                        return RetrofitClient.newInstance().getApi().getBeautyList("福利",20,++page).subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread());
+                    }
+                })
+
                 .subscribe(new Observer<BaseResponseBean<Beauty>>() {
                     @Override
                     public void onSubscribe(Disposable d) {

@@ -1,7 +1,7 @@
 package com.idealcn.recyclerView.http;
 
-import com.idealcn.recyclerView.activity.stagger.BaseResponseBean;
-import com.idealcn.recyclerView.activity.stagger.Beauty;
+import com.idealcn.recyclerView.activity.stagger.bean.BaseResponseBean;
+import com.idealcn.recyclerView.activity.stagger.bean.Beauty;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

@@ -49,6 +49,11 @@ position
   GestureDectorCompat
   ViewConfiguration
   VelocityTracker
+  
+  
+# 瀑布流
+给瀑布流加入骨架屏效果
+瀑布流上拉加载和下拉刷新
 
 
 #参考博客

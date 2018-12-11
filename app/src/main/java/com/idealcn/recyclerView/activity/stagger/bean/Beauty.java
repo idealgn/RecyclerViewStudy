@@ -1,4 +1,4 @@
-package com.idealcn.recyclerView.activity.stagger;
+package com.idealcn.recyclerView.activity.stagger.bean;
 
 import java.io.Serializable;
 

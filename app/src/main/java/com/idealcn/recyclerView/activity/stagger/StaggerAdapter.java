@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.idealcn.recyclerView.R;
+import com.idealcn.recyclerView.activity.stagger.bean.Beauty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,7 @@ public class StaggerAdapter extends RecyclerView.Adapter<StaggerAdapter.StaggerH
 
     private List<Beauty> dataList = new ArrayList<>();
 
-    private Context context;
-    public StaggerAdapter(Context context){
-        this.context = context;
+    public StaggerAdapter(){
     }
 
     @NonNull
@@ -35,16 +34,9 @@ public class StaggerAdapter extends RecyclerView.Adapter<StaggerAdapter.StaggerH
 
     @Override
     public void onBindViewHolder(@NonNull StaggerHolder holder, int position) {
-//        AssetManager assetManager = context.getAssets();
-//        try {
-//            InputStream inputStream = assetManager.open("imgs/"+dataList.get(position));
-//            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-//            holder.textView.setImageBitmap(bitmap);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        ImageLoader.getLoader(context).display(holder.textView,dataList.get(position).getUrl());
+        ImageLoader loader = ImageLoader.getLoader();
+        loader.setUseLocalCache(true);
+        loader.display(holder.textView,dataList.get(position).getUrl());
 
     }
 
