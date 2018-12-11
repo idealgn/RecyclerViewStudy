@@ -54,3 +54,5 @@ position
 #参考博客
 https://github.com/idealcn/EMvp
 [RecyclerView源码解读和优化](https://www.jianshu.com/p/52791ac320f6)
+[一种优雅的方式实现RecyclerView多布局](https://blog.csdn.net/xuehuayous/article/details/80021325)
+[getAdapterPosition和getLayoutPosition](https://stackoverflow.com/questions/29684154/recyclerview-viewholder-getlayoutposition-vs-getadapterposition)

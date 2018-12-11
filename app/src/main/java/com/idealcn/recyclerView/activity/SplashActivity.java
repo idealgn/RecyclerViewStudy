@@ -5,12 +5,13 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 
 import com.idealcn.recyclerView.R;
 import com.idealcn.recyclerView.databinding.ActivitySplashBinding;
+import com.idealcn.recyclerView.multiType.MultiTypeListActivity;
+import com.idealcn.recyclerView.stagger.StaggeredActivity;
 
 /**
  * Created by ideal-gn on 2017/9/6.
@@ -54,6 +55,12 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.refresh:
                 startActivity(new Intent(this,RefreshActivity.class));
+                break;
+            case R.id.multiType:
+                startActivity(new Intent(this,MultiTypeListActivity.class));
+                break;
+            case R.id.pubuliu:
+                startActivity(new Intent(this,StaggeredActivity.class));
                 break;
                 default:break;
         }
