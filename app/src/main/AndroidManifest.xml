@@ -23,8 +23,8 @@
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.DefineSwipeDeleteActivity" />
         <activity android:name=".activity.RefreshActivity" />
-        <activity android:name=".multiType.MultiTypeListActivity" />
-        <activity android:name=".stagger.StaggeredActivity" />
+        <activity android:name=".activity.multiType.MultiTypeListActivity" />
+        <activity android:name=".activity.stagger.StaggeredActivity" />
     </application>
 
 </manifest>

@@ -10,8 +10,8 @@ import android.view.Window;
 
 import com.idealcn.recyclerView.R;
 import com.idealcn.recyclerView.databinding.ActivitySplashBinding;
-import com.idealcn.recyclerView.multiType.MultiTypeListActivity;
-import com.idealcn.recyclerView.stagger.StaggeredActivity;
+import com.idealcn.recyclerView.activity.multiType.MultiTypeListActivity;
+import com.idealcn.recyclerView.activity.stagger.StaggeredActivity;
 
 /**
  * Created by ideal-gn on 2017/9/6.

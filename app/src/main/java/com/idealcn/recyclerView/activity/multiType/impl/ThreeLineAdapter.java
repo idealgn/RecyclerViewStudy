@@ -1,13 +1,13 @@
-package com.idealcn.recyclerView.multiType.impl;
+package com.idealcn.recyclerView.activity.multiType.impl;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.idealcn.recyclerView.R;
-import com.idealcn.recyclerView.multiType.IMultiTypeAdapter;
-import com.idealcn.recyclerView.multiType.MultiTypeAdapter;
-import com.idealcn.recyclerView.multiType.MultiTypeData;
+import com.idealcn.recyclerView.activity.multiType.IMultiTypeAdapter;
+import com.idealcn.recyclerView.activity.multiType.MultiTypeAdapter;
+import com.idealcn.recyclerView.activity.multiType.MultiTypeData;
 
 /**
  * @author: guoning

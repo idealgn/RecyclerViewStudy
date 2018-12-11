@@ -1,4 +1,4 @@
-package com.idealcn.recyclerView.stagger;
+package com.idealcn.recyclerView.activity.stagger;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.idealcn.recyclerView.R;
 import com.idealcn.recyclerView.http.RetrofitClient;
 
-import java.io.IOException;
 import java.util.List;
 
 import io.reactivex.Observer;

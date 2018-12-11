@@ -1,4 +1,4 @@
-package com.idealcn.recyclerView.multiType;
+package com.idealcn.recyclerView.activity.multiType;
 
 import java.io.Serializable;
 

@@ -1,8 +1,8 @@
-package com.idealcn.recyclerView.stagger.impl;
+package com.idealcn.recyclerView.activity.stagger.impl;
 
 import android.graphics.Bitmap;
 
-import com.idealcn.recyclerView.stagger.ImageCache;
+import com.idealcn.recyclerView.activity.stagger.ImageCache;
 
 import java.util.HashMap;
 import java.util.Map;

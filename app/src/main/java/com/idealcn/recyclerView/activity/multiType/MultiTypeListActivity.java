@@ -1,4 +1,4 @@
-package com.idealcn.recyclerView.multiType;
+package com.idealcn.recyclerView.activity.multiType;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.idealcn.recyclerView.R;
-import com.idealcn.recyclerView.multiType.impl.SingleLineAdapter;
-import com.idealcn.recyclerView.multiType.impl.ThreeLineAdapter;
-import com.idealcn.recyclerView.multiType.impl.TwoLineAdapter;
+import com.idealcn.recyclerView.activity.multiType.impl.SingleLineAdapter;
+import com.idealcn.recyclerView.activity.multiType.impl.ThreeLineAdapter;
+import com.idealcn.recyclerView.activity.multiType.impl.TwoLineAdapter;
 
 /**
  * @author: guoning

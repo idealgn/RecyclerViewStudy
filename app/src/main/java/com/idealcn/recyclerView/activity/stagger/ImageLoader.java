@@ -1,13 +1,12 @@
-package com.idealcn.recyclerView.stagger;
+package com.idealcn.recyclerView.activity.stagger;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
-import com.idealcn.recyclerView.stagger.impl.ImageMemoryCache;
-import com.idealcn.recyclerView.stagger.impl.LocalImageCache;
+import com.idealcn.recyclerView.activity.stagger.impl.ImageMemoryCache;
+import com.idealcn.recyclerView.activity.stagger.impl.LocalImageCache;
 
 import java.io.IOException;
 import java.io.InputStream;
