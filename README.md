@@ -14,6 +14,7 @@ floating绘制字体仍有问题
 如图:
 ![rect](http://aliyunzixunbucket.oss-cn-beijing.aliyuncs.com/png/getItemOffsets_test1.png?x-oss-process=image/resize,p_100/auto-orient,1/quality,q_90/format,jpg/watermark,image_eXVuY2VzaGk=,t_100,g_se,x_0,y_0)(图片来源于网络,如有侵权,请联系我删除)
 
+![itemdecoration](https://upload-images.jianshu.io/upload_images/7866586-1e7be4fe57c27c65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 position
 
  RecyclerView及其相关的类定义了 许多获取position的方法
@@ -42,3 +43,14 @@ position
 
 
 # 添加单击事件和长按事件
+
+相关类
+  GestureDector
+  GestureDectorCompat
+  ViewConfiguration
+  VelocityTracker
+
+
+#参考博客
+https://github.com/idealcn/EMvp
+[RecyclerView源码解读和优化](https://www.jianshu.com/p/52791ac320f6)

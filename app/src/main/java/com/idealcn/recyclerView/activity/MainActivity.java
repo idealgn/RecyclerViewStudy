@@ -10,6 +10,7 @@ import com.idealcn.recyclerView.decoration.LeftItemDecoration;
 import com.idealcn.recyclerView.adapter.MyAdapter;
 import com.idealcn.recyclerView.decoration.MyItemDecoration;
 import com.idealcn.recyclerView.R;
+import com.idealcn.recyclerView.listener.RecyclerViewItemClickListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +66,22 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(myAdapter);
 
-        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+//        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//            }
+//
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//                if (recyclerView.getScrollState()==RecyclerView.SCROLL_STATE_DRAGGING&&Math.abs(dy)>0){
+//                    myAdapter.close();
+//                }
+//            }
+//        });
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -77,6 +93,21 @@ public class MainActivity extends AppCompatActivity {
                 if (recyclerView.getScrollState()==RecyclerView.SCROLL_STATE_DRAGGING&&Math.abs(dy)>0){
                     myAdapter.close();
                 }
+            }
+        });
+
+        recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(recyclerView){
+
+            @Override
+            protected void onItemLongClick(RecyclerView.ViewHolder childViewHolder) {
+                int layoutPosition = childViewHolder.getLayoutPosition();
+                System.out.println("onItemLongClick:  "+layoutPosition);
+            }
+
+            @Override
+            protected void onItemClick(RecyclerView.ViewHolder childViewHolder) {
+                int layoutPosition = childViewHolder.getLayoutPosition();
+                System.out.println("onItemClick:  "+layoutPosition);
             }
         });
 
