@@ -12,6 +12,7 @@ import com.idealcn.recyclerView.R;
 import com.idealcn.recyclerView.databinding.ActivitySplashBinding;
 import com.idealcn.recyclerView.activity.multiType.MultiTypeListActivity;
 import com.idealcn.recyclerView.activity.stagger.StaggeredActivity;
+import com.idealcn.recyclerView.treelist.TreeListActivity;
 
 /**
  * Created by ideal-gn on 2017/9/6.
@@ -61,6 +62,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.pubuliu:
                 startActivity(new Intent(this,StaggeredActivity.class));
+                break;
+            case R.id.treeList:
+                startActivity(new Intent(this,TreeListActivity.class));
                 break;
                 default:break;
         }

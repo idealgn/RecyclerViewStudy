@@ -25,6 +25,7 @@
         <activity android:name=".activity.RefreshActivity" />
         <activity android:name=".activity.multiType.MultiTypeListActivity" />
         <activity android:name=".activity.stagger.StaggeredActivity" />
+        <activity android:name=".treelist.TreeListActivity" />
     </application>
 
 </manifest>
