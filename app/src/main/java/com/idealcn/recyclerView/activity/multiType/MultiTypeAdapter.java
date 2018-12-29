@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.idealcn.recyclerView.treelist.base.IMultiTypeAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ import java.util.List;
  */
 public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.MultiTypeHolder> {
 
-    private List<IMultiTypeAdapter> iMultiTypeAdapterList = new ArrayList<>();
+    private List<IMultiTypeAdapter<MultiTypeData,MultiTypeHolder>> iMultiTypeAdapterList = new ArrayList<>();
     private List<MultiTypeData> multiTypeDataList = new ArrayList<>();
     @NonNull
     @Override
@@ -37,7 +39,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Mult
     @Override
     public int getItemViewType(int position) {
         MultiTypeData data = multiTypeDataList.get(position);
-        for (IMultiTypeAdapter iMultiTypeAdapter : iMultiTypeAdapterList) {
+        for (IMultiTypeAdapter<MultiTypeData,MultiTypeHolder> iMultiTypeAdapter : iMultiTypeAdapterList) {
             if (iMultiTypeAdapter.canParseItemType(data)){
                 return iMultiTypeAdapterList.indexOf(iMultiTypeAdapter);
             }
@@ -45,7 +47,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Mult
         return super.getItemViewType(position);
     }
 
-    public void addMultiTypeAdapter(IMultiTypeAdapter adapter){
+    public void addMultiTypeAdapter(IMultiTypeAdapter<MultiTypeData,MultiTypeHolder> adapter){
         iMultiTypeAdapterList.add(adapter);
     }
 

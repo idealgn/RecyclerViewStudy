@@ -63,7 +63,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.pubuliu:
                 startActivity(new Intent(this,StaggeredActivity.class));
                 break;
-            case R.id.treeList:
+            case R.id.tree:
                 startActivity(new Intent(this,TreeListActivity.class));
                 break;
                 default:break;

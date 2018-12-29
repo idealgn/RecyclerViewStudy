@@ -16,8 +16,8 @@ public class ImageMemoryCache implements ImageCache {
     private LruCache<String,Bitmap> lruCache = new LruCache<String,Bitmap>(freeMemory){
         @Override
         protected int sizeOf(String key, Bitmap value) {
-
-            return value.getByteCount();
+            //返回的这个数值不能超过Intege.MAX_VALUE
+            return value.getByteCount() ;
         }
     };
     @Override

@@ -1,5 +1,7 @@
 package com.idealcn.recyclerView.activity.multiType;
 
+import com.idealcn.recyclerView.treelist.base.TreeNode;
+
 import java.io.Serializable;
 
 /**
@@ -7,7 +9,7 @@ import java.io.Serializable;
  * @date: 2018/12/11 15:10
  * @description:
  */
-public class MultiTypeData implements Serializable {
+public class MultiTypeData implements Serializable ,TreeNode {
     private int type;
     private String desc;
 
@@ -25,5 +27,10 @@ public class MultiTypeData implements Serializable {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    @Override
+    public <T extends TreeNode> void add(T node) {
+
     }
 }

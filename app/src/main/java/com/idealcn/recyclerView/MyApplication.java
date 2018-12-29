@@ -6,6 +6,8 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 
+import java.io.File;
+
 /**
  * Created by ideal-gn on 2017/9/12.
  */
@@ -31,5 +33,20 @@ public class MyApplication extends Application {
         int densityDpi1 = displayMetrics.densityDpi;
         float scaledDensity = displayMetrics.scaledDensity;
 
+        packageName = getPackageName();
+        httpCachePath = new File(getFilesDir(),"/cache/okhttp/");
+        if (!httpCachePath.exists())
+            httpCachePath.mkdirs();
+
+    }
+
+    private static String packageName;
+    private static File httpCachePath;
+    public static String getAppPackageName(){
+        return packageName;
+    }
+
+    public static File getHttpCachePath(){
+        return  httpCachePath;
     }
 }

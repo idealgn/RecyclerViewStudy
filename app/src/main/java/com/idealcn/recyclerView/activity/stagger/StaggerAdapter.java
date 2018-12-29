@@ -3,6 +3,7 @@ package com.idealcn.recyclerView.activity.stagger;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +23,11 @@ import java.util.List;
 public class StaggerAdapter extends RecyclerView.Adapter<StaggerAdapter.StaggerHolder> {
 
     private List<Beauty> dataList = new ArrayList<>();
+    private RecyclerView recyclerView;
 
-    public StaggerAdapter(){
+
+    public void bindRecyclerView(RecyclerView recyclerView){
+        this.recyclerView = recyclerView;
     }
 
     @NonNull
@@ -34,9 +38,25 @@ public class StaggerAdapter extends RecyclerView.Adapter<StaggerAdapter.StaggerH
 
     @Override
     public void onBindViewHolder(@NonNull StaggerHolder holder, int position) {
+        // TODO: 2018/12/12 只在item可见的时候才去加载显示图片
+        System.out.println("onBindViewHolder: "+position);
+        if (recyclerView==null){
+            throw new RuntimeException("you should use method bindRecyclerView");
+        }
+
+        StaggeredGridLayoutManager layoutManager = (StaggeredGridLayoutManager) recyclerView.getLayoutManager();
+        if (null==layoutManager){
+            throw new RuntimeException("you should set layoutmanger");
+        }
+//        layoutManager.findLastVisibleItemPositions()
+
+
+
         ImageLoader loader = ImageLoader.getLoader();
-        loader.setUseLocalCache(true);
-        loader.display(holder.textView,dataList.get(position).getUrl());
+        loader.setUseLocalCache(false);
+        String url = dataList.get(position).getUrl();
+        holder.imageView.setTag(url);
+        loader.display(holder.imageView, url);
 
     }
 
@@ -51,11 +71,40 @@ public class StaggerAdapter extends RecyclerView.Adapter<StaggerAdapter.StaggerH
         notifyItemRangeInserted(start,data.size());
     }
 
+    /**
+     * 截取集合
+     * @param start 起始位置
+     * @param count 截取长度
+     * @return 集合
+     */
+    public List<Beauty> getData(int start, int count) {
+
+        if (start<0)
+            throw new RuntimeException("起始位置不能小于0");
+
+        if (count<=0)
+            throw new RuntimeException("截取长度要大于0");
+
+        int size = dataList.size();
+
+        if (size <= start) {
+           throw new RuntimeException("起始位置大于数据集合长度");
+        }
+
+
+        if (size>count && size - start >=count){
+            return dataList.subList(start,count);
+        }
+
+
+        return dataList.subList(start,size - start);
+    }
+
     public static class StaggerHolder extends RecyclerView.ViewHolder{
-        public ImageView textView;
+        public ImageView imageView;
         public StaggerHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.text);
+            imageView = itemView.findViewById(R.id.text);
         }
     }
 }

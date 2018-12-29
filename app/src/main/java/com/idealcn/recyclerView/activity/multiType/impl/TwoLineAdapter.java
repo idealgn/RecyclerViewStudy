@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.idealcn.recyclerView.R;
-import com.idealcn.recyclerView.activity.multiType.IMultiTypeAdapter;
+import com.idealcn.recyclerView.treelist.base.IMultiTypeAdapter;
 import com.idealcn.recyclerView.activity.multiType.MultiTypeAdapter;
 import com.idealcn.recyclerView.activity.multiType.MultiTypeData;
 
@@ -14,7 +14,7 @@ import com.idealcn.recyclerView.activity.multiType.MultiTypeData;
  * @date: 2018/12/11 15:41
  * @description:
  */
-public class TwoLineAdapter implements IMultiTypeAdapter {
+public class TwoLineAdapter implements IMultiTypeAdapter<MultiTypeData,MultiTypeAdapter.MultiTypeHolder> {
     @Override
     public boolean canParseItemType(MultiTypeData data) {
         return data.getType()==2;

@@ -51,7 +51,7 @@
 
         <Button
             android:onClick="@{click}"
-            android:id="@+id/treeList"
+            android:id="@+id/tree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="多级列表" />

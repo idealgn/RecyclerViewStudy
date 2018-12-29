@@ -56,6 +56,12 @@ position
 瀑布流上拉加载和下拉刷新
 
 
+# 多线程
+ 锁
+ 
+# okhttp
+
+
 #参考博客
 https://github.com/idealcn/EMvp
 [RecyclerView源码解读和优化](https://www.jianshu.com/p/52791ac320f6)
